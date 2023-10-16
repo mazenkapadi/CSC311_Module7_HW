@@ -2,17 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.javafx_db_example.db;
+package com.example.csc311_module7_hw;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
- *
  * @author MoaathAlrajab
  */
 public class ConnDbOps {
@@ -22,7 +16,7 @@ public class ConnDbOps {
     final String USERNAME = "csc311admin@csc311courseservermaz";
     final String PASSWORD = "DataBase@123";
 
-    public  boolean connectToDatabase() {
+    public boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
 
@@ -49,6 +43,7 @@ public class ConnDbOps {
                     + "phone VARCHAR(200),"
                     + "address VARCHAR(200),"
                     + "password VARCHAR(200) NOT NULL"
+
                     + ")";
             statement.executeUpdate(sql);
 
@@ -73,7 +68,7 @@ public class ConnDbOps {
         return hasRegistredUsers;
     }
 
-    public  void queryUserByName(String name) {
+    public void queryUserByName(String name) {
 
 
         try {
@@ -99,7 +94,7 @@ public class ConnDbOps {
         }
     }
 
-    public  void listAllUsers() {
+    public void listAllUsers() {
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -124,23 +119,68 @@ public class ConnDbOps {
         }
     }
 
-    public  void insertUser(String name, String email, String phone, String address, String password) {
+//    public void insertUser(Person person) {
+//
+//
+//        try {
+//            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+//            String sql = "INSERT INTO users (name, email, phone, address, password) VALUES (?, ?, ?, ?, ?)";
+//            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+//            preparedStatement.setString(1, person.getName());
+//            preparedStatement.setString(2, person.getEmail());
+//            preparedStatement.setString(3, person.getPhone());
+//            preparedStatement.setString(4, address);
+//            preparedStatement.setString(5, person.getPassword());
+//
+//            int row = preparedStatement.executeUpdate();
+//
+//            if (row > 0) {
+//                System.out.println("A new user was inserted successfully.");
+//            }
+//
+//            preparedStatement.close();
+//            conn.close();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void updateUser(String name, String email, String phone, String address, String password) {
+//
+//        try {
+//            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+//            String sql = "UPDATE users Set name = ? Where email = ?";
+//            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+//            preparedStatement.setString(1, name);
+//            preparedStatement.setString(2, email);
+//
+//            int row = preparedStatement.executeUpdate();
+//
+//            if (row > 0) {
+//                System.out.println("A new user was updated successfully.");
+//            }
+//
+//            preparedStatement.close();
+//            conn.close();
+//
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
+    public void deleteUser(String email) {
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "INSERT INTO users (name, email, phone, address, password) VALUES (?, ?, ?, ?, ?)";
+            String sql = "DELETE FROM users WHERE email = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, phone);
-            preparedStatement.setString(4, address);
-            preparedStatement.setString(5, password);
+
 
             int row = preparedStatement.executeUpdate();
-
             if (row > 0) {
-                System.out.println("A new user was inserted successfully.");
+                System.out.println("User was deleted successfully.");
             }
 
             preparedStatement.close();
@@ -148,5 +188,7 @@ public class ConnDbOps {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
+
 }

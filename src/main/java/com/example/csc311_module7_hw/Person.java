@@ -1,4 +1,4 @@
-package com.example.module03_basicgui_db_interface;
+package com.example.csc311_module7_hw;
 
 /**
  * Represents a person entity with fields corresponding to a database table.
@@ -7,121 +7,102 @@ public class Person {
 
     // Fields corresponding to columns in the table
     private Integer id;
-    private String firstName;
-    private String lastName;
-    private String dept;
-    private String major;
+    private String name;  // Changed from Name to name
+    private String email;
+    private int phone;
+    private String password;
+    private int salary;  // Added salary field
 
     /**
      * Default constructor for the Person class.
      */
     public Person() {
+        this.id = 0;
+        this.name = "";
+        this.email = "";
+        this.phone = 0;
+        this.password = "";
+        this.salary = 0;
     }
 
     /**
      * Constructs a Person object with the specified attributes.
      *
-     * @param id        The unique identifier of the person.
-     * @param firstName The first name of the person.
-     * @param lastName  The last name of the person.
-     * @param dept      The department of the person.
-     * @param major     The major of the person.
+     * @param id       The unique identifier of the person.
+     * @param name     The name of the person.
+     * @param email    The email of the person.
+     * @param phone    The phone of the person.
+     * @param password The password of the person.
+     * @param salary   The salary of the person.
      */
-    public Person(Integer id, String firstName, String lastName, String dept, String major) {
+    public Person(Integer id, String name, String email, int phone, String password, int salary) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.major = major;
-        this.dept = dept;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.salary = salary;
     }
 
-    /**
-     * Gets the unique identifier of the person.
-     *
-     * @return The person's ID.
-     */
+    // Getter and Setter methods for all fields (id, name, email, phone, password, salary) go here
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone=" + phone +
+                ", password='" + password + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
 
-    /**
-     * Sets the unique identifier of the person.
-     *
-     * @param id The person's ID.
-     */
     public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     * Gets the first name of the person.
-     *
-     * @return The first name.
-     */
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    /**
-     * Sets the first name of the person.
-     *
-     * @param firstName The first name.
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * Gets the last name of the person.
-     *
-     * @return The last name.
-     */
-    public String getLastName() {
-        return lastName;
+    public String getEmail() {
+        return email;
     }
 
-    /**
-     * Sets the last name of the person.
-     *
-     * @param lastName The last name.
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    /**
-     * Gets the major of the person.
-     *
-     * @return The major.
-     */
-    public String getMajor() {
-        return major;
+    public int getPhone() {
+        return phone;
     }
 
-    /**
-     * Sets the major of the person.
-     *
-     * @param major The major.
-     */
-    public void setMajor(String major) {
-        this.major = major;
+    public void setPhone(int phone) {
+        this.phone = phone;
     }
 
-    /**
-     * Gets the department of the person.
-     *
-     * @return The department.
-     */
-    public String getDept() {
-        return dept;
+    public String getPassword() {
+        return password;
     }
 
-    /**
-     * Sets the department of the person.
-     *
-     * @param dept The department.
-     */
-    public void setDept(String dept) {
-        this.dept = dept;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 }

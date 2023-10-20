@@ -46,6 +46,12 @@ public class Person {
 
     // Getter and Setter methods for all fields (id, name, email, phone, password, salary) go here
 
+    /**
+     * Getter method to retrieve the account holder's name.
+     *
+     * @return The account holder's details.
+     */
+
     @Override
     public String toString() {
         return "Person{" +
@@ -58,51 +64,126 @@ public class Person {
                 '}';
     }
 
+
+    /**
+     * Getter method to retrieve the account holder's id.
+     *
+     * @return The account holder's id.
+     */
+
     public Integer getId() {
         return id;
     }
+
+    /**
+     * Setter method to set the account holder's id.
+     *
+     * @param id
+     */
 
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     * Getter method to retrieve the account holder's name.
+     *
+     * @return The account holder's name.
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     * Setter method to set the account holder's name.
+     * It takes a String as a <p>parameter<p/> and returns nothing.
+     *
+     * @param name The new account holder's name.
+     *             <p>
+     *             Some text
+     *             </p>
+     */
+
 
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter method to retrieve the account holder's email.
+     *
+     * @return The account holder's email.
+     */
+
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Setter method to set the account holder's email.
+     *
+     * @param email The new account holder's email.
+     */
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     * Getter method to retrieve the account holder's phone.
+     *
+     * @return The account holder's phone.
+     */
 
     public int getPhone() {
         return phone;
     }
 
+    /**
+     * Setter method to set the account holder's phone.
+     *
+     * @param phone The new account holder's phone.
+     */
+
     public void setPhone(int phone) {
         this.phone = phone;
     }
+
+    /**
+     * Getter method to retrieve the account holder's password.
+     *
+     * @return The account holder's password.
+     */
 
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Setter method to set the account holder's password.
+     *
+     * @param password The new account holder's password.
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Getter method to retrieve the account holder's salary.
+     *
+     * @return The account holder's salary.
+     */
     public int getSalary() {
         return salary;
     }
 
+    /**
+     * Setter method to set the account holder's salary.
+     *
+     * @param salary The new account holder's salary.
+     */
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
 }
